@@ -58,7 +58,8 @@ number (integer): The number to be classified.
 
 
 # Deployment
-Ensure the API is deployed on a publicly accessible platform such as Heroku, Vercel, or AWS.
+Ensure the API is deployed on a publicly accessible platform such as Render, Heroku, Vercel, or AWS. This is deployed on render at:
+https://number-classification-api-1r76.onrender.com/api/classify-number?number={REPLACE THIS WITH YOUR DESIRED NUMBER}
 
 # Contribution
 Feel free to submit issues or pull requests to improve the API!
