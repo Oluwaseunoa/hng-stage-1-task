@@ -63,10 +63,10 @@ app.get("/api/classify-number", async (req, res) => {
     let { number } = req.query;
     let num = parseInt(number);
 
-    if (isNaN(num)) {
-        return res.status(400).json({ number, error: true });
+    if (isNaN(number) || number.trim() === "" || isNaN(parseFloat(number))) {
+        return res.status(400).json({ number: "alphabet", error: true });
     }
-
+    
     // Compute properties in parallel
     const [prime, perfect, armstrong, funFact] = await Promise.all([
         isPrime(num),
