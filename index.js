@@ -49,7 +49,7 @@ const getFunFact = async (num) => {
     if (cachedFact) return cachedFact;
 
     try {
-        const response = await axios.get(`http://numbersapi.com/${num}/math?json`, { timeout: 300 });
+        const response = await axios.get(`http://numbersapi.com/${num}/math?json`, { timeout: 400 });
         cache.set(num, response.data.text);
         return response.data.text;
     } catch (error) {
@@ -84,7 +84,7 @@ app.get("/api/classify-number", async (req, res) => {
         is_prime: prime,
         is_perfect: perfect,
         properties,
-        digit_sum: num.toString().split("").reduce((acc, digit) => acc + parseInt(digit), 0),
+        digit_sum: Math.abs(num).toString().split("").reduce((acc, digit) => acc + parseInt(digit), 0),
         fun_fact: funFact,
     });
 });
